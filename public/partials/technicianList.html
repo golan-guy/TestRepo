@@ -1,0 +1,17 @@
+<div ng-controller="TechnicianController">
+	<div class="row technician_cotainer">
+			<div class="technician" ng-repeat="technician in technicians">									
+				<div class="details">
+					<div class="name">{{technician.name}}</div>
+					<div class="phone">{{technician.phone}}</div>
+				</div>								
+				<div class="appointment" ng-repeat="appointment in technician.appointments" ng-click="updateAppointment(appointment)">
+					<div class="client_details">{{appointment.client.cIndex}} - {{appointment.client.name}}</div>
+					<div class="appointment_details">{{appointment.startTime | date : 'dd/MM/yyyy HH:mm'}} - {{appointment.endTime | date : 'dd/MM/yyyy HH:mm'}}</div>
+				</div>									
+			</div>
+	</div>
+</div>
+	<!-- ng-click="updateAppointment(appointment)" 
+		ng-click="deleteAppointment(technician,appointment)"
+	-->

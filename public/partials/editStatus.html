@@ -1,0 +1,15 @@
+<div>
+	<ul>
+		<li ng-repeat="status in statusList">
+			<div>{{status.name}}</div>
+			<button type="button" ng-click="editStatus(status)">Edit</button>
+
+		</li>
+	</ul>
+
+	<form novalidate name="StatusForm" ng-submit="createStatus(StatusForm.$valid)">
+		<input type="text" name="name" placeholder="status name" ng-model="formData.name" required />
+		<button type="submit">Save</button>
+	</form>
+
+</div>

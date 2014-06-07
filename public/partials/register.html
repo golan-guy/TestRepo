@@ -1,0 +1,32 @@
+<form name="register-form" class="form-horizontal" role="form" ng-submit="register($valid)">
+		<div class="form-group">
+			<label for="inputName" class="col-sm-4 control-label">Name</label>
+			<div class="col-sm-4">
+				<input name="name" type="text" class="form-control" id="inputName" placeholder="Name" ng-model="formData.name">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputUsername" class="col-sm-4 control-label">Username</label>
+			<div class="col-sm-4">
+				<input name="username" type="text" class="form-control" id="inputUsername" placeholder="Username" ng-model="formData.username">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputPassword" class="col-sm-4 control-label">Password</label>
+			<div class="col-sm-4">
+				<input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="formData.password">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputPasswordConfirmation" class="col-sm-4 control-label">Password Confirmation</label>
+			<div class="col-sm-4">
+				<input name="passwordConfirmation" type="password" class="form-control" id="inputPasswordConfirmation" placeholder="Password" ng-model="formData.passwordConfirmation">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-4 col-sm-10">
+				<button type="submit" class="btn btn-default">Register</button>
+			</div>
+		</div>
+		<a href="/login">Login</a>	
+</form>

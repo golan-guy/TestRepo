@@ -1,0 +1,78 @@
+<div ng-controller="AppointmentController">
+		<div id="appointment-form" style="width:500px;">
+			<form name="appointmentForm" ng-submit="createAppointment(appointmentForm.$valid)" ng-class="{submitted : submitted}" novalidate>
+					
+				<div class="form-group">
+					<label>לקוח:
+						<input type="text" name="client" required ng-blur="validateClient()" ng-model="formData.client" typeahead="client._id as client.cIndex for client in getClients($viewValue)" class="form-control" typeahead-input-formatter="formatLabel($model)" />
+					</label>			
+					<label>סטטוס:
+						<select id="statusSelect" name="status" required class="form-control" ng-model="formData.status" ng-options="status._id as status.name for status in statusList">    			
+						</select>
+					</label>
+
+					<label>סוג עבודה:
+						<select name="jobType" required placeholder="Select job type" class="form-control" ng-model="formData.jobType" ng-options="jobType._id as jobType.name for jobType in jobTypes">    						
+						</select>		
+					</label>				
+				</div>
+		   	 	
+		   	 	<div class="row">
+					<div class="col-lg-10">
+						<label>טכנאים:</label>
+						<select multiple class="form-control select-technicians" name="technicians" required placeholder="Select technicians" ng-multiple="	true" ng-model="formData.technicians" ng-options="tech._id as tech.name for tech in technicians">
+						</select>
+					</div>
+		   	 		<div class="col-lg-10">
+						<label>זמן התחלה:</label>
+	   	 				<div class="dropdown select-date	">
+					  		<a class="dropdown-toggle" id="startTime" role="button" data-toggle="dropdown" data-target="#" href="#">
+								<div name="displayStartTime" ng-class="{'ng-invalid' : appointmentForm.startTime.$invalid}" class="form-control">{{formData.displayStartTime | date:'dd/MM/yyyy HH:mm'}}</div>
+					  		</a>
+					  		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				    			<datetimepicker data-ng-model="formData.startTime" data-on-set-time="validateStartTime" data-datetimepicker-config="{ dropdownSelector: '#startTime', language : 'he' }"/>
+				  			</ul>
+						</div>								
+						<label>זמן סיום:</label>
+						<div class="dropdown select-date">
+							<a class="dropdown-toggle" id="endTime" role="button" data-toggle="dropdown" data-target="#" href="#">
+						    	<div name="displayEndTime" ng-class="{'ng-invalid' : appointmentForm.endTime.$invalid}" class="form-control">{{formData.displayEndTime | date:'dd/MM/yyyy HH:mm'}}</div>
+						  	</a>
+					  		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						    	<datetimepicker data-ng-model="formData.endTime" data-on-set-time="validateEndTime" data-datetimepicker-config="{ dropdownSelector: '#endTime',language : 'he' }"/>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+				<div class="form-group">
+
+					
+					<label>בעיה:</label>
+					<textarea name="problem" class="form-control" required ng-model="formData.problem" />
+				</div>
+	   			
+				<div class="form-group">
+		   			
+					<input id="smsInput" name="sms" type="checkbox" ng-model="formData.sms" />				
+					<label for="smsInput">SMS</label>
+				
+					<input id="approveInput" name="sms" type="checkbox" ng-model="formData.approve" />
+					<label for="approveInput">אישור</label>
+				</div>
+			
+				<div class="form-group">
+					<label>אחר:</label>
+					<textarea name="notes" class="form-control" placeholder="Notes" ng-model="formData.notes" />
+				</div>
+				
+				<div class="form-group">
+					<button type="submit" class="btn btn-default">{{formData._id ? 'עדכן' : 'שמור'}}</button>
+					<button type="reset" ng-click="reset()" class="btn btn-default">אפס</button>
+				</div>
+
+				<input type="hidden" required name="startTime" ng-model="formData.startTime" class="form-control" />
+				<input type="hidden" required name="endTime" ng-model="formData.endTime" class="form-control" />
+			</form>
+		</div>
+</div>

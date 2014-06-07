@@ -1,0 +1,18 @@
+<div>
+	<ul>
+		<li ng-repeat="jobType in jobTypes">
+			<div>{{jobType.name}}</div>
+			<div>{{jobType.score}}</div>			
+			<button type="button" ng-click="editJobType(jobType)">Edit</button>
+
+		</li>
+	</ul>
+
+	<form novalidate name="JobTypeForm" ng-submit="createJobType(JobTypeForm.$valid)">
+		<input type="text" name="name" placeholder="job type name" ng-model="formData.name" required />
+		<input type="number" name="phone" placeholder="job type score" ng-model="formData.score" min="0" required />		
+
+		<button type="submit">Save</button>
+	</form>
+
+</div>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html ng-app="CalendarApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Calendar</title>
+	
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="js/addons/bootstrap.js"></script>
+
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-route.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.js"></script>	
+	<script src="js/addons/moment-with-langs.min.js"></script>
+
+	<script src="js/directives/directives.js"></script>
+	<script src="js/addons/datetimepicker.js"></script>
+	<script src="js/addons/ui-bootstrap-custom-tpls-0.10.0.js"></script>	
+	<script src="js/filters/extensions.js"></script>	
+	<script src="js/services/authentication.js"></script>	
+	<script src="js/services/technicians.js"></script>	
+	<script src="js/services/clients.js"></script>	
+	<script src="js/services/appointments.js"></script>
+	<script src="js/services/status.js"></script>
+	<script src="js/services/jobtype.js"></script>
+	<script src="js/controllers/AppointmentCtrl.js"></script>
+	<script src="js/controllers/LoginCtrl.js"></script>
+	<script src="js/controllers/ClientCtrl.js"></script>
+	<script src="js/controllers/JobTypeCtrl.js"></script>
+	<script src="js/controllers/StatusCtrl.js"></script>
+	<script src="js/controllers/TechnicianCtrl.js"></script>	
+	<script src="js/controllers/CalendarCtrl.js"></script>
+	<script src="js/core.js"></script>
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/datetimepicker.css">	
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+
+<style>
+  body {
+   }
+ [contentEditable="true"]:empty:not(:focus):before{
+        content:attr(data-ph)
+    }
+    form[name="appointmentForm"].submitted .ng-invalid {
+	    border:1px solid #f00;	    
+    }
+    textarea {
+   		resize: none;
+	}
+	.select-date{
+		width:200px;
+	}
+	.select-technicians{
+		width:120px;
+	}
+		
+    
+    </style>
+</head>
+<body>
+<a href="/test">test</a>
+<a href="/calendar">calendar</a>
+<a href="/test">test</a>
+<div ng-controller="LoginController">
+	<button type="button" class="btn btn-default" ng-click="logout()">Logout</button>
+</div>
+<div>
+	<div ng-view></div>
+</div>
+<!-- 
+<div ng-controller="ClientController">
+	<form name="clientForm" ng-submit="createClient(clientForm.$valid)" novalidate>
+	<input type="text" name="name" ng-model="formData.name" required placeholder="Client name" />	
+	<input type="text" name="cIndex" ng-model="formData.cIndex" min-length="6" max-length="7" placeholder="Client index" />		
+	<input type="text" name="city" ng-model="formData.city" required placeholder="Client city" />	
+	<input type="text" name="street" ng-model="formData.street" required placeholder="Client street" />	
+	<input type="text" name="phone" ng-model="formData.phone" ng-pattern="/^0\d([\d]{0,1})([-]{0,1})\d{7}$/" placeholder="Client phone" />	
+	<input type="text" name="contact1name" ng-model="formData.contact1name" required placeholder="Contact name" />
+	<input type="text" name="contact1phone" ng-model="formData.contact1phone" ng-pattern="/^0\d([\d]{0,1})([-]{0,1})\d{7}$/" placeholder="Contact phone" />
+	<input type="text" name="contact2name" ng-model="formData.contact2name" placeholder="Contact name" />
+	<input type="text" name="contact2phone" ng-model="formData.contact2phone" rpattern="/^0\d([\d]{0,1})([-]{0,1})\d{7}$/" ng-required="formData.contact2name.length" ng-disabled="!formData.contact2name.length" placeholder="Contact phone" />
+	<input type="text" name="notes" ng-model="formData.notes" placeholder="Client notes" />	
+	<input type="text" name="mokedKavi" ng-model="formData.mokedKavi" ng-pattern="/^0\d{0,1}[mM]\d{4}$/" placeholder="Client moked kavi" />	
+	<input type="text" name="mokedAlchuti" ng-model="formData.mokedAlchuti" ng-pattern="/^[12]\d{0,1}[mM]\d{4}$/" placeholder="Client moked alchuti" />		
+	<button type="submit">Save</button>
+	</form>
+</div> -->
+<!--<a href="/partials/test.html">test</a>
+	<div class="container">
+
+		<div id="appointment-form" class="row">
+			<div class="col-sm-8 col-sm-offset-2 text-center">
+				<form name="technicianForm" ng-submit="createTechnician(technicianForm.$valid)" novalidate>
+					<div class="form-group">
+						<input name="name" type="text" class="form-control" placeholder="Name" 
+						ng-model="formData.name" required>
+					</div>
+					<div class="form-group">
+						<input name="phone" type="text" class="form-control" placeholder="Phone" 
+						ng-model="formData.phone" required ng-pattern="/^0\d([\d]{0,1})([-]{0,1})\d{7}$/">
+					</div>					
+					<button type="submit" class="btn btn-primary" ng-disabled="technicianForm.$invalid">Add</button>
+				</form>
+			</div>
+		</div>
+
+	</div>-->
+	
+</body>
+</html>
+

@@ -1,0 +1,20 @@
+<div>
+	<ul>
+		<li ng-repeat="technician in technicians">
+			<div>{{technician.name}}</div>
+			<div>{{technician.phone}}</div>
+			<div>{{technician.isActive}}</div>
+			<button type="button" ng-click="editTechnician(technician)">Edit</button>
+
+		</li>
+	</ul>
+
+	<form novalidate name="TechnicianForm" ng-submit="createTechnician(TechnicianForm.$valid)">
+		<input type="text" name="name" placeholder="Technician name" ng-model="formData.name" required />
+		<input type="text" name="phone" placeholder="Technician phone" ng-model="formData.phone" ng-pattern="/^0\d([\d]{0,1})([-]{0,1})\d{7}$/" />
+		<input type="checkbox" ng-model="formData.isActive" />
+
+		<button type="submit">Save</button>
+	</form>
+
+</div>
